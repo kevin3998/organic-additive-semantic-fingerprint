@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+.worktrees/
+worktrees/
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+*.safetensors
+.codex/
+runs_v4/
+private_runs_v4/

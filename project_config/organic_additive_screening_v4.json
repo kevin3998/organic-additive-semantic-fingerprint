@@ -1,0 +1,121 @@
+{
+  "schema_version": 4,
+  "method_version": "organic-semantic-fingerprint-v4",
+  "source_bundle": {
+    "expected_counts": {
+      "candidate_count": 800,
+      "anchor_count": 10,
+      "stage1_embedding_rows": 810,
+      "selected_count": 200
+    },
+    "hashes": {
+      "candidates": "9825817e08d9c5443d98ec8abb6188efd61884db5a338ba165a16fdc4bd82f06",
+      "reference_anchors": "5887c78e1f7633999de1a91b7f5ed94651fe468d0bb8b217a5ab9a415a4056e1",
+      "stage1_scores": "7c45c9ac7d144bd19c28fb98295b6aefc31dcfc96e277034197e250fdde92b",
+      "stage1_embeddings": "738d7f850366c39906f9abfcbe77d4c1567f0029373c0ced96ba4f242a11c4cf",
+      "molecular_cards": "23d29082e2f883f3303e1295d549fda183d344e0390bdd1bd8dfd636c05877ce",
+      "target_registry": "8a072581dd89dda62dc6d6809ea573cdc66b924514818378be0c6041d960477a"
+    }
+  },
+  "screening": {
+    "stage1_keep": 200,
+    "top_n": 50,
+    "semantic_success_rank": 15,
+    "axis_order": [
+      "ncm811",
+      "lithium_metal",
+      "lhce_solvation"
+    ],
+    "axis_weights": {
+      "ncm811": 0.3333333333333333,
+      "lithium_metal": 0.3333333333333333,
+      "lhce_solvation": 0.3333333333333333
+    }
+  },
+  "molecular_card": {
+    "fields": [
+      "canonical_smiles",
+      "molecular_formula",
+      "molecular_weight",
+      "hbond_donors",
+      "hbond_acceptors",
+      "tpsa",
+      "clogp",
+      "ring_count",
+      "rotatable_bond_count",
+      "fragment_counts"
+    ],
+    "numeric_precision": 3,
+    "fragments": "all_positive_rdkit_fr_descriptors"
+  },
+  "prompts": {
+    "system": "You are a chemistry language model. Encode how the supplied molecular structure relates to one electrolyte-additive design axis. Do not infer measured battery performance and do not generate an explanation.",
+    "user_template": "Electrolyte context:\nLiFSI/DME/TTE localized high-concentration electrolyte for a high-voltage NCM811||Li-metal full cell.\n\nEvaluation axis:\n{criterion}\n\nCandidate molecular card:\n{molecular_card}\n\nEncode the candidate molecular structure for comparison with reference electrolyte additives.",
+    "baseline_card": "No candidate molecular structure is provided.",
+    "criteria": {
+      "ncm811": "Oxidative and interphase compatibility with high-voltage NCM811, favoring intrinsic stability or controlled self-limiting oxidation over persistent electrolyte decomposition and transition-metal dissolution.",
+      "lithium_metal": "Reductive and interphase compatibility with lithium metal, favoring intrinsic stability or controlled self-limiting reduction, uniform lithium deposition, and low persistent parasitic consumption.",
+      "lhce_solvation": "Moderate and non-disruptive interaction with LiFSI/DME/TTE solvation aggregates, avoiding both negligible participation and excessive lithium-ion capture or solvation-network disruption."
+    }
+  },
+  "embedding": {
+    "chat_template": true,
+    "add_generation_prompt": true,
+    "hidden_layer": "last",
+    "token_position": "last_non_padding_prompt_token",
+    "raw_dtype": "float32",
+    "center": "axis_specific_no_structure_baseline",
+    "l2_normalize_after_centering": true,
+    "epsilon": 1e-12,
+    "entity_order": [
+      "axis_baseline",
+      "anchors_A01_to_A10",
+      "selected_candidates_by_stage1_rank"
+    ]
+  },
+  "semantic_scoring": {
+    "mode": "context_centered_anchor_cosine",
+    "anchor_count": 10,
+    "anchor_top_k": 2,
+    "anchor_aggregation": "arithmetic_mean",
+    "axis_rank_method": "descending_average_ties",
+    "axis_percentile_formula": "(200-average_rank)/199",
+    "semantic_aggregation": "equal_axis_percentile_mean",
+    "semantic_rank_method": "descending_average_ties"
+  },
+  "structural_tie_breaker": {
+    "fingerprint": "morgan",
+    "radius": 2,
+    "n_bits": 2048,
+    "use_chirality": false,
+    "similarity": "tanimoto",
+    "anchor_top_k": 2,
+    "anchor_aggregation": "arithmetic_mean",
+    "role": "exact_semantic_score_ties_only"
+  },
+  "model": {
+    "repo_id": "OpenDFM/ChemDFM-v2.0-14B",
+    "revision": "b3b1d2143bb3e307e6b6dae794f6e9b0a83a45ef",
+    "local_dir": "/Users/chenlintao/models/ChemDFM-v2.0-14B",
+    "device": "mps",
+    "dtype": "float16",
+    "weight_total_bytes": 29540067328,
+    "metadata_sha256": {
+      "config.json": "2f8c570c94b98e54581e6226f10b280954e71f3565b5601d30c0daa914ed0ca9",
+      "model.safetensors.index.json": "425811015c8708208c9efc04c4cfae250c7927a1b04c99dda5a9121caf4bf77a",
+      "tokenizer_config.json": "2f58f4bbd7bbce15d683f525954ef3a92cd82f5e06415a9c513859bf8ab72436",
+      "vocab.json": "87a257b04b17642a0688c98cd1df89c398bda4fee532d6f88b38a659ecb4ac8d",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "special_tokens_map.json": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+      "added_tokens.json": "58b54bbe36fc752f79a24a271ef66a0a0830054b4dfad94bde757d851968060b"
+    },
+    "weight_sha256": {
+      "model-00001-of-00006.safetensors": "9e7ec9412c3eaccfe61c2fb05e3f19116df88a4a7dce7fa9408385b8c4389cf1",
+      "model-00002-of-00006.safetensors": "dcb71757abd05e63d7d36246fb4884c3459212711ff7f45dea2ac00ad3669483",
+      "model-00003-of-00006.safetensors": "0a5079d11b1995320f17c7e5b53f6522ff620a9314059485e52430960e2571ae",
+      "model-00004-of-00006.safetensors": "03fda60347498171b7be5e8b54ba7eaf52c2eaf0be7dedd442605324258071e6",
+      "model-00005-of-00006.safetensors": "72c4b1b11ab7f56ac5b47c496e4c4826a0ec154519beddf5501f0a8b42e849e8",
+      "model-00006-of-00006.safetensors": "d0cccc18c42a18ce8d22a83f12487318d10549909f12a1ca76174896ac1929aa"
+    }
+  }
+}

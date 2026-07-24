@@ -1,0 +1,1 @@
+"""Project-wide shared configuration."""
