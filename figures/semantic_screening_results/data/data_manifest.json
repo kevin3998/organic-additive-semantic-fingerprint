@@ -1,0 +1,130 @@
+{
+  "created_at": "2026-07-24T11:25:53.089807+00:00",
+  "fixed_parameters": {
+    "axis_order": [
+      "ncm811",
+      "lithium_metal",
+      "lhce_solvation"
+    ],
+    "float_tolerance": 1e-12,
+    "main_top_n": 20,
+    "reported_top_n": 50
+  },
+  "formal_manifest_sha256": "d2ec23693a404c12eb201c09a40b48dcbcb716574d3fefe1e1f8b8c12db7a599",
+  "formal_result_lock_sha256": "a23bbd9042d5a9aab64113e00f31f610cb4d44ab1dd395a8f616b8288a897778",
+  "method_version": "organic-semantic-fingerprint-v4",
+  "outputs": {
+    "annotated/ranking_all_annotated.csv": {
+      "path": "annotated/ranking_all_annotated.csv",
+      "sha256": "b540b52c9f73e80d14bc106dd0add97f1d456503a93cdc8911d86710b41d2cbe",
+      "size": 43883
+    },
+    "annotated/selected_anchor_profile.csv": {
+      "path": "annotated/selected_anchor_profile.csv",
+      "sha256": "7b9695c2ff2a772d9613f1229f76864a4fa272604b66ec3ec9543aa22f047918",
+      "size": 3449
+    },
+    "annotated/selected_candidate_summary.json": {
+      "path": "annotated/selected_candidate_summary.json",
+      "sha256": "c7fe916cca624ee1d23ffbe7c05ee73fc4718fa0bb48238b70f7638e83f9a54e",
+      "size": 933
+    },
+    "anonymous/anchor_cosines_long.csv": {
+      "path": "anonymous/anchor_cosines_long.csv",
+      "sha256": "a759b7bcce405f07f06838104ac0465e1b6c9a6635cdc91e3d786b5f1f580cb0",
+      "size": 631931
+    },
+    "anonymous/anchor_selection_frequency.csv": {
+      "path": "anonymous/anchor_selection_frequency.csv",
+      "sha256": "c31b0a200e6e458945ca5810a20b300047b65b844831f22eba6b1e9bc2f309d8",
+      "size": 2412
+    },
+    "anonymous/axis_correlations.csv": {
+      "path": "anonymous/axis_correlations.csv",
+      "sha256": "17a1e822aa63f48caf2e63058abcb6fb25b834ccd708d43856050c5289319993",
+      "size": 887
+    },
+    "anonymous/axis_distribution_summary.csv": {
+      "path": "anonymous/axis_distribution_summary.csv",
+      "sha256": "3f158c7b3410e3aa846d96427cbdb09809750d556c2c3a6bf8d8cae9608fb160",
+      "size": 731
+    },
+    "anonymous/axis_scores_long.csv": {
+      "path": "anonymous/axis_scores_long.csv",
+      "sha256": "290d45de1fa1ad9d794b044c06030ca150c1edffd09f6e4ce0fc142d290196c0",
+      "size": 80738
+    },
+    "anonymous/processing_summary.json": {
+      "path": "anonymous/processing_summary.json",
+      "sha256": "c4a600ffa6dd5a16b80e3485ae05fd86961b8a54de069d9a1c19c718a444d611",
+      "size": 522
+    },
+    "anonymous/ranking_all.csv": {
+      "path": "anonymous/ranking_all.csv",
+      "sha256": "d8820185c6fe9b3620002d8a940c39d8c0696487340367be6958cb56c17a4361",
+      "size": 42189
+    },
+    "anonymous/semantic_tie_groups.csv": {
+      "path": "anonymous/semantic_tie_groups.csv",
+      "sha256": "63f1203f4a491817ae3c10079bf05a4b709015b8d66053ec149be92ab9e20463",
+      "size": 3511
+    },
+    "anonymous/stage1_all.csv": {
+      "path": "anonymous/stage1_all.csv",
+      "sha256": "13c62a99857f709784b673e9cb28a11ba65a8eba42a09dd09d66ad30a67e654f",
+      "size": 213598
+    },
+    "anonymous/top20_axis_matrix.csv": {
+      "path": "anonymous/top20_axis_matrix.csv",
+      "sha256": "058fa1e62ec7bfc98ceddbc7b2c2e28fbc485dfc9ea22cd9613572fb25061ee5",
+      "size": 3835
+    },
+    "anonymous/top50_ranking.csv": {
+      "path": "anonymous/top50_ranking.csv",
+      "sha256": "26da279231d26af1b55a0a20589c8063104c9870c69eff7572120f825388f469",
+      "size": 10463
+    },
+    "semantic_screening_source_data.xlsx": {
+      "path": "semantic_screening_source_data.xlsx",
+      "sha256": "0a0e8afa8864ac0053989cda9966d1a42b47a2b01de02f0dcaf68760c9293cde",
+      "size": 238387
+    },
+    "source_snapshot/anchor_cosines.csv": {
+      "path": "source_snapshot/anchor_cosines.csv",
+      "sha256": "65cffb33707d49946509eb9c6fce9a8d7f80020534174928faf6d08e4d2b6c80",
+      "size": 121040
+    },
+    "source_snapshot/molecular_cards.csv": {
+      "path": "source_snapshot/molecular_cards.csv",
+      "sha256": "23d29082e2f883f3303e1295d549fda183d344e0390bdd1bd8dfd636c05877ce",
+      "size": 492524
+    },
+    "source_snapshot/reference_anchors.csv": {
+      "path": "source_snapshot/reference_anchors.csv",
+      "sha256": "5887c78e1f7633999de1a91b7f5ed94651fe468d0bb8b217a5ab9a415a4056e1",
+      "size": 334
+    },
+    "source_snapshot/stage1_scores.csv": {
+      "path": "source_snapshot/stage1_scores.csv",
+      "sha256": "7c45c9ac7d144bd19c28fb98295b6aefc31dcfcfc96e277034197e250fdde92b",
+      "size": 205512
+    }
+  },
+  "processing_code": {
+    "git_commit": "8fb76de671c975e8cd3f8698d95e4e4aa1b73358",
+    "path": "figures/semantic_screening_results/prepare_data.py",
+    "sha256": "7684ee3892c0d23099c08737f47fdf170e8e62c9c03a2aa414cc3fea40967d8b"
+  },
+  "run_id": "20260724-organic-additive-v4-01",
+  "runtime": {
+    "numpy": "1.26.4",
+    "openpyxl": "3.1.5",
+    "python": "3.12.13"
+  },
+  "schema_version": 1,
+  "selection": {
+    "anonymous_rank1_candidate_id": "C0686",
+    "identity_annotation_stage": "after_anonymous_final_ranking",
+    "identity_used_for_ranking": false
+  }
+}

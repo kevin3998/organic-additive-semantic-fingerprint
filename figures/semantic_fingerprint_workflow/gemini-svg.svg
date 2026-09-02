@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1150" width="900" height="1150" style="background-color: white; font-family: Arial, sans-serif;">
+    <defs>
+        <!-- Arrowhead marker -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#000" />
+        </marker>
+        <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#ff0000" />
+        </marker>
+        <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#008000" />
+        </marker>
+        <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0000ff" />
+        </marker>
+    </defs>
+
+    <!-- Header -->
+    <circle cx="40" cy="40" r="20" fill="#0f172a" />
+    <text x="40" y="48" fill="white" font-size="24" font-weight="bold" text-anchor="middle">3</text>
+    <text x="75" y="48" fill="black" font-size="28" font-weight="bold">Context-conditioned semantic fingerprinting</text>
+
+    <!-- Top 3 Boxes -->
+    <!-- NCM811 (Red) -->
+    <rect x="40" y="80" width="250" height="180" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="70" cy="110" r="15" fill="#ef4444" />
+    <text x="70" y="116" fill="white" font-size="16" font-weight="bold" text-anchor="middle">N</text>
+    <text x="95" y="115" fill="#ef4444" font-size="20" font-weight="bold">NCM811 interface</text>
+    <text x="165" y="145" fill="black" font-size="16" text-anchor="middle">Oxidative / CEI</text>
+    <!-- Placeholder for drawing -->
+    <rect x="80" y="165" width="170" height="70" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5" />
+    
+    <!-- Li-metal (Green) -->
+    <rect x="320" y="80" width="250" height="180" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="350" cy="110" r="15" fill="#166534" />
+    <text x="350" y="116" fill="white" font-size="16" font-weight="bold" text-anchor="middle">L</text>
+    <text x="375" y="115" fill="#166534" font-size="20" font-weight="bold">Li-metal interface</text>
+    <text x="445" y="145" fill="black" font-size="16" text-anchor="middle">Reductive / SEI</text>
+    <rect x="360" y="165" width="170" height="70" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5" />
+
+    <!-- LHCE (Blue) -->
+    <rect x="600" y="80" width="250" height="180" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="630" cy="110" r="15" fill="#1e3a8a" />
+    <text x="630" y="116" fill="white" font-size="16" font-weight="bold" text-anchor="middle">S</text>
+    <text x="655" y="115" fill="#1e3a8a" font-size="20" font-weight="bold">LHCE solvation</text>
+    <text x="725" y="145" fill="black" font-size="16" text-anchor="middle">Non-disruptive</text>
+    <circle cx="725" cy="200" r="20" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" />
+    <text x="725" y="206" fill="#1e3a8a" font-size="16" text-anchor="middle">Li+</text>
+
+    <!-- Subtitle -->
+    <text x="450" y="295" fill="black" font-size="18" text-anchor="middle">Applied independently for each axis a ∈ {N, L, S}</text>
+
+    <!-- Parallelograms -->
+    <polygon points="200,310 400,310 380,380 180,380" fill="#f9fafb" stroke="black" stroke-width="1.5"/>
+    <text x="290" y="340" fill="black" font-size="18" font-weight="bold" text-anchor="middle">Candidate</text>
+    <text x="290" y="365" fill="black" font-size="18" font-style="italic" text-anchor="middle">C_i</text>
+
+    <polygon points="520,310 720,310 700,380 500,380" fill="#f9fafb" stroke="black" stroke-width="1.5"/>
+    <text x="610" y="340" fill="black" font-size="18" font-weight="bold" text-anchor="middle">Anchors</text>
+    <text x="610" y="365" fill="black" font-size="18" text-anchor="middle">A01-A10</text>
+
+    <!-- Arrows down -->
+    <line x1="290" y1="380" x2="290" y2="400" stroke="black" stroke-width="2" />
+    <line x1="610" y1="380" x2="610" y2="400" stroke="black" stroke-width="2" />
+    <line x1="290" y1="400" x2="450" y2="400" stroke="black" stroke-width="2" />
+    <line x1="610" y1="400" x2="450" y2="400" stroke="black" stroke-width="2" />
+    <line x1="450" y1="400" x2="450" y2="420" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- Frozen ChemDFM Box -->
+    <rect x="220" y="420" width="460" height="150" rx="10" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="450" y="445" fill="black" font-size="18" font-weight="bold" text-anchor="middle">Frozen ChemDFM</text>
+    <text x="450" y="465" fill="black" font-size="14" text-anchor="middle">Hidden-state encoding (no generation)</text>
+    
+    <!-- Inner Encoder Box -->
+    <rect x="375" y="480" width="150" height="70" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="450" y="515" fill="black" font-size="16" text-anchor="middle">ChemDFM</text>
+    <text x="450" y="535" fill="black" font-size="16" text-anchor="middle">Encoder</text>
+
+    <line x1="450" y1="570" x2="450" y2="600" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- L2 Normalization Box -->
+    <rect x="220" y="600" width="460" height="120" rx="10" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="450" y="625" fill="black" font-size="18" font-weight="bold" text-anchor="middle">Axis-specific centering (L2 normalization)</text>
+    <!-- Math formula placeholder -->
+    <text x="450" y="670" fill="black" font-size="20" font-style="italic" text-anchor="middle">z_a = (h_a - h_a^(0)) / ||h_a - h_a^(0)||_2</text>
+    <text x="450" y="705" fill="black" font-size="14" font-style="italic" text-anchor="middle">z_a : axis-specific semantic fingerprint</text>
+
+    <!-- Side dashed box -->
+    <rect x="40" y="600" width="130" height="120" rx="10" fill="white" stroke="black" stroke-width="1.5" stroke-dasharray="5,5"/>
+    <text x="105" y="625" fill="black" font-size="14" text-anchor="middle">Axis-specific</text>
+    <text x="105" y="645" fill="black" font-size="14" text-anchor="middle">no-structure</text>
+    <text x="105" y="665" fill="black" font-size="14" text-anchor="middle">baseline</text>
+    <line x1="170" y1="660" x2="215" y2="660" stroke="black" stroke-width="1.5" stroke-dasharray="5,5" marker-end="url(#arrow)" />
+
+    <line x1="450" y1="720" x2="450" y2="740" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- Cosine Similarity Box -->
+    <rect x="220" y="740" width="460" height="100" rx="10" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="450" y="765" fill="black" font-size="18" font-weight="bold" text-anchor="middle">Cosine similarity to context-matched anchors</text>
+    <text x="450" y="810" fill="black" font-size="20" text-anchor="middle">z_a    [ ]  X  [ ]  [ ] ... [ ]</text>
+
+    <line x1="450" y1="840" x2="450" y2="860" stroke="black" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- Top-2 Mean Box -->
+    <rect x="220" y="860" width="460" height="80" rx="10" fill="white" stroke="black" stroke-width="1.5"/>
+    <text x="450" y="885" fill="black" font-size="18" font-weight="bold" text-anchor="middle">Top-2 mean</text>
+    <text x="450" y="905" fill="black" font-size="14" text-anchor="middle">Average of top-2 similarities</text>
+    
+    <!-- Colored Paths to Bottom Boxes -->
+    <path d="M 410 940 L 410 970 L 165 970 L 165 990" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-red)"/>
+    <path d="M 450 940 L 450 990" fill="none" stroke="#22c55e" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-green)"/>
+    <path d="M 490 940 L 490 970 L 735 970 L 735 990" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+
+    <!-- Bottom 3 Boxes -->
+    <rect x="40" y="995" width="250" height="90" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <text x="165" y="1040" fill="#ef4444" font-size="24" font-weight="bold" font-style="italic" text-anchor="middle">S_N</text>
+    <text x="165" y="1065" fill="black" font-size="16" text-anchor="middle">axis N score</text>
+
+    <rect x="325" y="995" width="250" height="90" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+    <text x="450" y="1040" fill="#166534" font-size="24" font-weight="bold" font-style="italic" text-anchor="middle">S_L</text>
+    <text x="450" y="1065" fill="black" font-size="16" text-anchor="middle">axis L score</text>
+
+    <rect x="610" y="995" width="250" height="90" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="735" y="1040" fill="#1e3a8a" font-size="24" font-weight="bold" font-style="italic" text-anchor="middle">S_S</text>
+    <text x="735" y="1065" fill="black" font-size="16" text-anchor="middle">axis S score</text>
+
+</svg>

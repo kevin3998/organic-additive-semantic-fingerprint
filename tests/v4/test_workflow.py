@@ -243,14 +243,6 @@ def _build_fixture(
                 "mode": "context_centered_anchor_cosine",
                 "anchor_top_k": 2,
             },
-            "structural_tie_breaker": {
-                "fingerprint": "morgan",
-                "radius": 2,
-                "n_bits": 2048,
-                "use_chirality": False,
-                "anchor_top_k": 2,
-                "role": "exact_semantic_score_ties_only",
-            },
             "model": {
                 "repo_id": "fixture/model",
                 "revision": "fixture-revision",
@@ -464,14 +456,7 @@ def test_freeze_records_import_model_prompts_entity_order_and_smoke(
         "C0002",
         "C0003",
     ]
-    assert manifest["structure_parameters"] == {
-        "fingerprint": "morgan",
-        "radius": 2,
-        "n_bits": 2048,
-        "use_chirality": False,
-        "anchor_top_k": 2,
-        "role": "exact_semantic_score_ties_only",
-    }
+    assert "structure_parameters" not in manifest
     assert set(manifest["prompt_sha256"]) == set(AXES) | {"system", "template"}
     assert manifest["inputs"]["smoke_report"]["sha256"] == _sha(smoke)
     assert manifest["inputs"]["model/model.safetensors"]["sha256"] == _sha(
@@ -723,8 +708,6 @@ def test_screen_writes_fixed_embeddings_scores_diagnostics_top50_and_lock(
         *{f"{axis}_percentile" for axis in AXES},
         "semantic_score",
         "semantic_rank",
-        "structural_score",
-        "structural_rank",
         "final_rank",
     }
     assert set(semantic_rows[0]) == expected_semantic_columns

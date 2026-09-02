@@ -1,0 +1,76 @@
+{
+  "created_at": "2026-08-02T14:35:05.786970+00:00",
+  "figure_version": "v4",
+  "inputs": {
+    "anchor_frequency": {
+      "path": "anonymous/anchor_selection_frequency.csv",
+      "sha256": "c31b0a200e6e458945ca5810a20b300047b65b844831f22eba6b1e9bc2f309d8",
+      "size": 2412
+    },
+    "axis_scores": {
+      "path": "anonymous/axis_scores_long.csv",
+      "sha256": "290d45de1fa1ad9d794b044c06030ca150c1edffd09f6e4ce0fc142d290196c0",
+      "size": 80738
+    },
+    "ranking": {
+      "path": "annotated/ranking_all_annotated.csv",
+      "sha256": "b540b52c9f73e80d14bc106dd0add97f1d456503a93cdc8911d86710b41d2cbe",
+      "size": 43883
+    },
+    "selected_anchors": {
+      "path": "annotated/selected_anchor_profile.csv",
+      "sha256": "7b9695c2ff2a772d9613f1229f76864a4fa272604b66ec3ec9543aa22f047918",
+      "size": 3449
+    },
+    "selected_summary": {
+      "path": "annotated/selected_candidate_summary.json",
+      "sha256": "c7fe916cca624ee1d23ffbe7c05ee73fc4718fa0bb48238b70f7638e83f9a54e",
+      "size": 933
+    },
+    "stage1": {
+      "path": "anonymous/stage1_all.csv",
+      "sha256": "13c62a99857f709784b673e9cb28a11ba65a8eba42a09dd09d66ad30a67e654f",
+      "size": 213598
+    }
+  },
+  "outputs": {
+    "anchor_selection_frequency.csv": {
+      "sha256": "b5d59425b828e113ee3b9d777e22ddfd4cd1f0ea1fd4ad7d77f3709fc9324028",
+      "size": 2469
+    },
+    "axis_rank1_rank2_summary.csv": {
+      "sha256": "07e78dd532f1fcc94c0e83884126278dd80a001e84e425061814e625bd4ace25",
+      "size": 720
+    },
+    "axis_score_distribution.csv": {
+      "sha256": "50967306e05677786e8cb8fade4bc32b1ee57ca990cb2f0ec1d2398bfc6a3127",
+      "size": 86151
+    },
+    "rank_migration.csv": {
+      "sha256": "d41422f7717dc4e7a4a51be0763ce7f993028f157e3e5f15f8221c950a5d2a0b",
+      "size": 18307
+    },
+    "selected_anchor_profile.csv": {
+      "sha256": "c8aeed4349d8b2acdc2e4fc63b85e869c44645bc4234dc85c1179bf66f826398",
+      "size": 3523
+    },
+    "selected_molecule.json": {
+      "sha256": "fda9c07fa6451bc4089767840d7f5f5669fdc795384ea0b625ddef7b6f79de9d",
+      "size": 355
+    },
+    "semantic_aggregation_trajectories.csv": {
+      "sha256": "1c2c7905f5eb1843df3652c85411edd4fbd4d4a9d88a8c5f1af097d887bdfe9b",
+      "size": 25506
+    },
+    "summary.json": {
+      "sha256": "7237a232ce85c55d7d262232882a332edfaa01bd7c290600cd8d8c7be636b6c3",
+      "size": 2306
+    }
+  },
+  "processing_script": {
+    "sha256": "7d001cdc4bb3850e5b83d2d0790e9f07a5d1f74d9ccaf0fcb275b9563efe76e5"
+  },
+  "run_id": "20260724-organic-additive-v4-01",
+  "schema_version": 2,
+  "source_data_manifest_sha256": "5b7b51b80839040681bd2e614d355cb5ca3aa4c9920f64503580b91bccdf6495"
+}

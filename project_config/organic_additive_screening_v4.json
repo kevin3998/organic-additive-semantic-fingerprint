@@ -83,16 +83,6 @@
     "semantic_aggregation": "equal_axis_percentile_mean",
     "semantic_rank_method": "descending_average_ties"
   },
-  "structural_tie_breaker": {
-    "fingerprint": "morgan",
-    "radius": 2,
-    "n_bits": 2048,
-    "use_chirality": false,
-    "similarity": "tanimoto",
-    "anchor_top_k": 2,
-    "anchor_aggregation": "arithmetic_mean",
-    "role": "exact_semantic_score_ties_only"
-  },
   "model": {
     "repo_id": "OpenDFM/ChemDFM-v2.0-14B",
     "revision": "b3b1d2143bb3e307e6b6dae794f6e9b0a83a45ef",

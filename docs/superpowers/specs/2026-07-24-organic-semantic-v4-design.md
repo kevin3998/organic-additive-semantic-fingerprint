@@ -8,7 +8,7 @@ high-voltage NCM811||Li-metal full cell.
 
 The method ranks a frozen set of 200 Stage 1 candidates. It does not predict
 additive concentration, measured electrochemical performance, or reaction
-mechanisms. The structural score is only an exact semantic-score tie breaker.
+mechanisms. Exact semantic-score ties are resolved by anonymous candidate ID.
 
 ## Frozen Inputs
 
@@ -69,15 +69,16 @@ The pure semantic score is the equal mean of the three axis percentiles:
 S_semantic = (R_NCM811 + R_Li + R_LHCE) / 3
 ```
 
-`semantic_rank` depends only on this value. Stage 1 scores and structural
-similarity do not enter the semantic formula.
+`semantic_rank` depends only on this value. Stage 1 scores do not enter the
+semantic formula.
 
-## Structural Tie Breaker
+## Deterministic Ordering
 
-Morgan fingerprints use radius 2, 2048 bits, and no chirality. Candidate-anchor
-Tanimoto similarities are aggregated by the same top-two mean. This structural
-score is consulted only when two candidates have exactly equal semantic scores;
-anonymous candidate ID is the final deterministic tie breaker.
+Candidates are ordered by descending pure semantic score. Anonymous
+`candidate_id` is used only when semantic scores are exactly equal. No
+additional chemical or structural score enters the ranking. The former
+structure-similarity idea is retained separately as an exploratory diagnostic
+and is not part of this method.
 
 ## Blind Execution
 
@@ -104,7 +105,6 @@ Run `20260724-organic-additive-v4-01` produced the following locked result for
 - lithium-metal axis rank: 1;
 - LHCE-solvation axis rank: 1;
 - pure semantic rank: 1;
-- structural rank: 6;
 - deterministic final rank: 1.
 
 The v4 success criterion, pure semantic rank no greater than 15, was met.

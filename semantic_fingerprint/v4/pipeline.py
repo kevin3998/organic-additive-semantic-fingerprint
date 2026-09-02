@@ -7,8 +7,6 @@ from numbers import Real
 
 import numpy as np
 import pandas as pd
-from rdkit import Chem, DataStructs
-from rdkit.Chem import rdFingerprintGenerator
 from scipy.stats import rankdata
 
 from semantic_fingerprint.v4.backend import center_and_normalize
@@ -27,15 +25,6 @@ _IDENTITY_FIELDS = {
     "is_target",
     "pubchem_cid",
 }
-
-
-def _finite_float(value: object, context: str) -> float:
-    if isinstance(value, bool) or not isinstance(value, Real):
-        raise TypeError(f"{context} must be a finite real number.")
-    result = float(value)
-    if not math.isfinite(result):
-        raise ValueError(f"{context} must be finite.")
-    return result
 
 
 def _validate_candidates(
@@ -104,86 +93,10 @@ def _validate_anchors(
     return result
 
 
-def morgan_fingerprint(
-    smiles: str,
-    *,
-    radius: int = 2,
-    n_bits: int = 2048,
-    use_chirality: bool = False,
-):
-    if isinstance(radius, bool) or not isinstance(radius, int) or radius < 0:
-        raise ValueError("radius must be a non-negative integer.")
-    if isinstance(n_bits, bool) or not isinstance(n_bits, int) or n_bits < 1:
-        raise ValueError("n_bits must be a positive integer.")
-    if not isinstance(use_chirality, bool):
-        raise TypeError("use_chirality must be a boolean.")
-    molecule = Chem.MolFromSmiles(smiles)
-    if molecule is None:
-        raise ValueError("RDKit could not parse a structural-score SMILES.")
-    generator = rdFingerprintGenerator.GetMorganGenerator(
-        radius=radius,
-        fpSize=n_bits,
-        includeChirality=use_chirality,
-    )
-    return generator.GetFingerprint(molecule)
-
-
-def compute_structural_scores(
-    candidates: Sequence[Mapping[str, object]],
-    anchors: Sequence[Mapping[str, object]],
-    *,
-    radius: int = 2,
-    n_bits: int = 2048,
-    use_chirality: bool = False,
-) -> dict[str, float]:
-    anchor_values = _validate_anchors(anchors)
-    anchor_fingerprints = [
-        morgan_fingerprint(
-            smiles,
-            radius=radius,
-            n_bits=n_bits,
-            use_chirality=use_chirality,
-        )
-        for _, smiles in anchor_values
-    ]
-    result: dict[str, float] = {}
-    for row in candidates:
-        if not isinstance(row, Mapping):
-            raise TypeError("Each candidate must be a mapping.")
-        candidate_id = row.get("candidate_id")
-        smiles = row.get("connectivity_smiles")
-        if not isinstance(candidate_id, str) or not candidate_id:
-            raise ValueError("candidate_id must be a non-empty string.")
-        if candidate_id in result:
-            raise ValueError(f"Duplicate candidate_id: {candidate_id}.")
-        if not isinstance(smiles, str) or not smiles:
-            raise ValueError("connectivity_smiles must be a non-empty string.")
-        fingerprint = morgan_fingerprint(
-            smiles,
-            radius=radius,
-            n_bits=n_bits,
-            use_chirality=use_chirality,
-        )
-        similarities = np.array(
-            [
-                DataStructs.TanimotoSimilarity(fingerprint, anchor_fingerprint)
-                for anchor_fingerprint in anchor_fingerprints
-            ],
-            dtype=np.float64,
-        )
-        top_two = np.partition(similarities, -2)[-2:]
-        score = float(top_two.mean())
-        if not math.isfinite(score):
-            raise ValueError("Structural score must be finite.")
-        result[candidate_id] = score
-    return result
-
-
 def aggregate_semantic_fingerprints(
     candidates,
     anchors,
     raw_embeddings,
-    structural_scores,
 ) -> list[dict[str, object]]:
     candidate_values = list(candidates)
     anchor_values = list(anchors)
@@ -203,25 +116,6 @@ def aggregate_semantic_fingerprints(
         )
     if not np.isfinite(raw).all():
         raise ValueError("raw_embeddings must contain only finite values.")
-
-    if not isinstance(structural_scores, Mapping):
-        raise TypeError("structural_scores must be a mapping.")
-    if set(structural_scores) != set(candidate_ids) or len(structural_scores) != len(
-        candidate_ids
-    ):
-        raise ValueError("Structural scores must exactly cover all candidates.")
-    structural = np.array(
-        [
-            _finite_float(
-                structural_scores[candidate_id],
-                f"structural score for {candidate_id}",
-            )
-            for candidate_id in candidate_ids
-        ],
-        dtype=np.float64,
-    )
-    if np.any((structural < 0.0) | (structural > 1.0)):
-        raise ValueError("Structural Tanimoto scores must lie in [0, 1].")
 
     rows: list[dict[str, object]] = [
         {
@@ -274,18 +168,14 @@ def aggregate_semantic_fingerprints(
         len(AXES) * _CANDIDATE_COUNT - rank_sums
     ) / (len(AXES) * (_CANDIDATE_COUNT - 1))
     semantic_ranks = rankdata(-semantic_scores, method="average")
-    structural_ranks = rankdata(-structural, method="average")
     for index, row in enumerate(rows):
         row["semantic_score"] = float(semantic_scores[index])
         row["semantic_rank"] = float(semantic_ranks[index])
-        row["structural_score"] = float(structural[index])
-        row["structural_rank"] = float(structural_ranks[index])
 
     order = sorted(
         range(_CANDIDATE_COUNT),
         key=lambda index: (
             -float(semantic_scores[index]),
-            -float(structural[index]),
             candidate_ids[index],
         ),
     )
@@ -343,7 +233,6 @@ def build_v4_diagnostics(
         "candidate_id",
         "semantic_score",
         "semantic_rank",
-        "structural_score",
         *{f"{axis}_score" for axis in AXES},
         *{f"{axis}_percentile" for axis in AXES},
         *{f"{axis}_top_anchor_1_id" for axis in AXES},
@@ -402,10 +291,4 @@ def build_v4_diagnostics(
         "axis_summaries": axis_summaries,
         "centered_norms": centered_norms,
         "anchor_selection_frequency": anchor_frequency,
-        "structure_semantic_correlation": {
-            method: _pair_correlation(
-                frame["structural_score"], frame["semantic_score"], method
-            )
-            for method in ("spearman", "pearson")
-        },
     }

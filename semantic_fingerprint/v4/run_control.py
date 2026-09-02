@@ -23,7 +23,6 @@ from semantic_fingerprint.v4.molecular_card import build_molecular_card_rows
 from semantic_fingerprint.v4.pipeline import (
     aggregate_semantic_fingerprints,
     build_v4_diagnostics,
-    compute_structural_scores,
 )
 
 
@@ -795,20 +794,6 @@ def freeze_v4_run(
         "template": _sha256_text(str(prompts.get("user_template", ""))),
         **{axis: _sha256_text(str(criteria[axis])) for axis in _AXES},
     }
-    structural = _mapping(
-        config.get("structural_tie_breaker"), "structural tie-breaker"
-    )
-    structure_parameters = {
-        key: structural[key]
-        for key in (
-            "fingerprint",
-            "radius",
-            "n_bits",
-            "use_chirality",
-            "anchor_top_k",
-            "role",
-        )
-    }
     public_paths = _mapping(provenance["public_paths"], "imported public paths")
     inputs = {
         label: _input_record(Path(path)) for label, path in public_paths.items()
@@ -834,7 +819,6 @@ def freeze_v4_run(
         "axis_order": list(_AXES),
         "entity_order": entity_order,
         "prompt_sha256": prompt_hashes,
-        "structure_parameters": structure_parameters,
         "semantic_success_rank": screening.get("semantic_success_rank"),
         "smoke_candidate_ids": list(report["candidate_ids"]),
         "source_bundle_sha256": provenance["source_bundle_sha256"],
@@ -1153,21 +1137,10 @@ def _finalize_screen_outputs(
         for candidate_id in [str(row["candidate_id"])]
     ]
     anchors = _read_csv(run_dir / "blind/reference_anchors.csv")
-    structural_config = _mapping(
-        config.get("structural_tie_breaker"), "structural tie-breaker"
-    )
-    structural_scores = compute_structural_scores(
-        selected_candidates,
-        anchors,
-        radius=int(structural_config["radius"]),
-        n_bits=int(structural_config["n_bits"]),
-        use_chirality=bool(structural_config["use_chirality"]),
-    )
     aggregate_rows = aggregate_semantic_fingerprints(
         selected_candidates,
         anchors,
         embeddings,
-        structural_scores,
     )
     diagnostics = build_v4_diagnostics(
         semantic_rows=aggregate_rows,
@@ -1201,8 +1174,6 @@ def _finalize_screen_outputs(
         ],
         "semantic_score",
         "semantic_rank",
-        "structural_score",
-        "structural_rank",
         "final_rank",
     ]
     semantic_rows = [
@@ -1218,7 +1189,6 @@ def _finalize_screen_outputs(
         *[f"{axis}_percentile" for axis in _AXES],
         "semantic_score",
         "semantic_rank",
-        "structural_score",
         "final_rank",
     ]
     top_rows = [
@@ -1602,8 +1572,6 @@ def _verify_locked_public_snapshots(
         ],
         "semantic_score",
         "semantic_rank",
-        "structural_score",
-        "structural_rank",
         "final_rank",
     ]
     semantic_ids: list[str] = []
@@ -1810,12 +1778,6 @@ def reveal_v4_target(*, run_dir: Path, private_dir: Path) -> dict[str, object]:
                 semantic_row, "semantic_score", label="v4 semantic scores"
             ),
             "semantic_rank": semantic_rank,
-            "structural_score": _numeric_value(
-                semantic_row, "structural_score", label="v4 semantic scores"
-            ),
-            "structural_rank": _numeric_value(
-                semantic_row, "structural_rank", label="v4 semantic scores"
-            ),
             "final_rank": int(final_rank),
             "semantic_top15": semantic_rank <= success_rank,
         },

@@ -1,0 +1,17 @@
+{
+  "candidate_count": 200,
+  "candidates_in_ties": 52,
+  "ecfp": {
+    "anchor_aggregation": "mean_top2_tanimoto",
+    "n_bits": 2048,
+    "radius": 2,
+    "use_chirality": false
+  },
+  "historical_structural_tiebreak_changed_internal_positions": 26,
+  "semantic_tie_group_count": 24,
+  "status": "exploratory_diagnostic_only",
+  "structure_semantic_spearman": 0.3864343014255334,
+  "top20_membership_unchanged_without_structure": true,
+  "top50_membership_unchanged_without_structure": true,
+  "used_in_main_ranking": false
+}

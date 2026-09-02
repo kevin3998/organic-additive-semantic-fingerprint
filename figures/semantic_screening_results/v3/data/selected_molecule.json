@@ -1,0 +1,11 @@
+{
+  "candidate_id": "C0686",
+  "connectivity_smiles": "N#CC1CCOC1",
+  "display_name": "3-cyanotetrahydrofuran",
+  "final_rank": 1,
+  "identity_annotation_stage": "after_anonymous_final_ranking",
+  "identity_used_for_ranking": false,
+  "molecular_formula": "C5H7NO",
+  "molecular_weight": 97.11699999999999,
+  "systematic_name": "oxolane-3-carbonitrile"
+}

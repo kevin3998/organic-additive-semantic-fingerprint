@@ -19,8 +19,9 @@ normalizing, each candidate is scored by the mean cosine similarity to its two
 closest anchors. The three axis-rank percentiles are averaged equally to obtain
 the pure semantic score.
 
-Morgan similarity is used only to resolve exact semantic-score ties. It does not
-enter the semantic score or the scientific success criterion.
+Candidates are ordered by the pure semantic score. Exact score ties are resolved
+deterministically by anonymous `candidate_id`; no additional chemical score
+enters the ranking.
 
 ## Repository Layout
 
@@ -30,6 +31,8 @@ semantic_fingerprint/v4/       Molecular cards, model backend, ranking, locking
 scripts/run_organic_screening_v4.py
 tests/v4/                       Unit, security, recovery, and integration tests
 docs/superpowers/specs/         Complete method specification
+figures/semantic_screening_results/structural_similarity_diagnostic/
+                                Archived exploratory structure diagnostic
 ```
 
 ## Environment

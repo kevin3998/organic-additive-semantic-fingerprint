@@ -132,16 +132,7 @@ def test_v4_config_freezes_context_centered_semantic_method() -> None:
         "semantic_aggregation": "equal_axis_percentile_mean",
         "semantic_rank_method": "descending_average_ties",
     }
-    assert config["structural_tie_breaker"] == {
-        "fingerprint": "morgan",
-        "radius": 2,
-        "n_bits": 2048,
-        "use_chirality": False,
-        "similarity": "tanimoto",
-        "anchor_top_k": 2,
-        "anchor_aggregation": "arithmetic_mean",
-        "role": "exact_semantic_score_ties_only",
-    }
+    assert "structural_tie_breaker" not in config
     model = config["model"]
     assert model["repo_id"] == "OpenDFM/ChemDFM-v2.0-14B"
     assert model["revision"] == "b3b1d2143bb3e307e6b6dae794f6e9b0a83a45ef"
@@ -181,7 +172,7 @@ def test_v4_scientific_boundary_contains_no_rejected_scoring_or_target_hint() ->
     }
     assert all(term not in lowered for term in forbidden)
     assert "target" not in json.dumps(config["semantic_scoring"]).lower()
-    assert "structural" not in json.dumps(config["semantic_scoring"]).lower()
+    assert "structural" not in lowered
 
 
 def test_v4_cli_has_exact_commands_and_blind_screen_boundary() -> None:

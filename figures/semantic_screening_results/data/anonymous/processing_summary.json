@@ -1,0 +1,16 @@
+{
+  "anchor_cosine_count": 6000,
+  "axis_score_count": 600,
+  "candidate_count_semantic": 200,
+  "candidate_count_stage1": 800,
+  "candidates_in_semantic_ties": 52,
+  "identity_used_for_ranking": false,
+  "maximum_semantic_tie_size": 3,
+  "method_version": "organic-semantic-fingerprint-v4",
+  "run_id": "20260724-organic-additive-v4-01",
+  "semantic_tie_group_count": 24,
+  "top50_count": 50,
+  "top_candidate_candidate_id_tiebreak_applied": false,
+  "top_candidate_id": "C0686",
+  "top_candidate_semantic_tie_size": 1
+}

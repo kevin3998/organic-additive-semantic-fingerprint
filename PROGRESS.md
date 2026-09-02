@@ -13,7 +13,9 @@
 
 - Implemented context-centered ChemDFM hidden-vector embeddings on three axes.
 - Implemented Top-2 reference-anchor cosine scoring and equal axis aggregation.
-- Kept Morgan/ECFP similarity as an exact semantic-score tie breaker only.
+- Fixed the main ranking to pure semantic score, with anonymous candidate ID as
+  the deterministic fallback for exact ties.
+- Moved the former Morgan/ECFP comparison to an isolated exploratory archive.
 - Implemented resumable embedding checkpoints, immutable result locking, and safe
   private reveal.
 - Executed and independently verified the first formal v4 run.

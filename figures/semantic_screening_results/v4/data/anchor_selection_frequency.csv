@@ -1,0 +1,31 @@
+axis,axis_label,anchor_id,anchor_name,selection_count,selection_fraction_of_slots,candidate_fraction,axis_order
+ncm811,NCM811 interface,A01,FEC,65,0.16250000000000001,0.32500000000000001,1
+ncm811,NCM811 interface,A02,VEC,140,0.34999999999999992,0.69999999999999984,1
+ncm811,NCM811 interface,A03,PS,40,0.10000000000000001,0.20000000000000001,1
+ncm811,NCM811 interface,A04,DTD,3,0.0074999999999999,0.014999999999999901,1
+ncm811,NCM811 interface,A05,SN,25,0.0625,0.125,1
+ncm811,NCM811 interface,A06,ADN,58,0.14499999999999991,0.28999999999999992,1
+ncm811,NCM811 interface,A07,TMSPi,7,0.017500000000000002,0.035000000000000003,1
+ncm811,NCM811 interface,A08,DETSP,15,0.037499999999999901,0.0749999999999999,1
+ncm811,NCM811 interface,A09,trimethyl borate,0,0,0,1
+ncm811,NCM811 interface,A10,trimethoxyboroxine,47,0.1174999999999999,0.2349999999999999,1
+lithium_metal,Lithium-metal interface,A01,FEC,47,0.1174999999999999,0.2349999999999999,2
+lithium_metal,Lithium-metal interface,A02,VEC,160,0.40000000000000002,0.80000000000000004,2
+lithium_metal,Lithium-metal interface,A03,PS,19,0.047500000000000001,0.095000000000000001,2
+lithium_metal,Lithium-metal interface,A04,DTD,3,0.0074999999999999,0.014999999999999901,2
+lithium_metal,Lithium-metal interface,A05,SN,25,0.0625,0.125,2
+lithium_metal,Lithium-metal interface,A06,ADN,72,0.17999999999999991,0.35999999999999988,2
+lithium_metal,Lithium-metal interface,A07,TMSPi,13,0.032500000000000001,0.065000000000000002,2
+lithium_metal,Lithium-metal interface,A08,DETSP,11,0.0275,0.055,2
+lithium_metal,Lithium-metal interface,A09,trimethyl borate,0,0,0,2
+lithium_metal,Lithium-metal interface,A10,trimethoxyboroxine,50,0.125,0.25,2
+lhce_solvation,LHCE solvation,A01,FEC,29,0.072499999999999898,0.14499999999999991,3
+lhce_solvation,LHCE solvation,A02,VEC,106,0.26500000000000001,0.53000000000000003,3
+lhce_solvation,LHCE solvation,A03,PS,58,0.14499999999999991,0.28999999999999992,3
+lhce_solvation,LHCE solvation,A04,DTD,21,0.052499999999999901,0.105,3
+lhce_solvation,LHCE solvation,A05,SN,58,0.14499999999999991,0.28999999999999992,3
+lhce_solvation,LHCE solvation,A06,ADN,68,0.17000000000000001,0.34000000000000002,3
+lhce_solvation,LHCE solvation,A07,TMSPi,26,0.065000000000000002,0.13,3
+lhce_solvation,LHCE solvation,A08,DETSP,19,0.047500000000000001,0.095000000000000001,3
+lhce_solvation,LHCE solvation,A09,trimethyl borate,0,0,0,3
+lhce_solvation,LHCE solvation,A10,trimethoxyboroxine,15,0.037499999999999901,0.0749999999999999,3

@@ -1,0 +1,31 @@
+candidate_id,connectivity_smiles,final_rank,axis,axis_label,anchor_id,anchor_name,cosine_similarity,top2_order,is_top2,display_name,axis_order
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A01,FEC,0.96088820695877075,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A02,VEC,0.96761035919189442,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A03,PS,0.93955415487289418,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A04,DTD,0.93350619077682484,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A05,SN,0.97697412967681885,1,True,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A06,ADN,0.97085380554199197,2,True,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A07,TMSPi,0.92228353023529042,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A08,DETSP,0.89708620309829712,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A09,trimethyl borate,0.92002433538436879,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,ncm811,NCM811 interface,A10,trimethoxyboroxine,0.92860698699951161,,False,3-cyanotetrahydrofuran,1
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A01,FEC,0.96040654182434082,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A02,VEC,0.97013807296752919,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A03,PS,0.93999952077865601,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A04,DTD,0.92734396457672119,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A05,SN,0.97945547103881836,1,True,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A06,ADN,0.97397959232330322,2,True,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A07,TMSPi,0.93071025609970082,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A08,DETSP,0.90098619461059559,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A09,trimethyl borate,0.91315096616744995,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lithium_metal,Lithium-metal interface,A10,trimethoxyboroxine,0.92642688751220703,,False,3-cyanotetrahydrofuran,2
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A01,FEC,0.96399170160293557,,False,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A02,VEC,0.97061729431152344,,False,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A03,PS,0.94851648807525635,,False,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A04,DTD,0.94412046670913685,,False,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A05,SN,0.98269641399383545,1,True,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A06,ADN,0.97563040256500244,2,True,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A07,TMSPi,0.93548744916915882,,False,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A08,DETSP,0.90272897481918324,,False,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A09,trimethyl borate,0.92328506708145142,,False,3-cyanotetrahydrofuran,3
+C0686,N#CC1CCOC1,1,lhce_solvation,LHCE solvation,A10,trimethoxyboroxine,0.93746280670166005,,False,3-cyanotetrahydrofuran,3

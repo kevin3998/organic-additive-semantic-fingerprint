@@ -12,7 +12,7 @@ Maintain one complete organic-additive screening implementation: v4.
 4. Subtract each axis baseline, L2-normalize, and compute candidate-anchor cosines.
 5. Average the two highest anchor similarities per axis.
 6. Convert axis ranks to percentiles and equally average the three semantic axes.
-7. Use ECFP only for exact semantic-score ties.
+7. Order by semantic score; use anonymous candidate ID only for exact ties.
 8. Publish immutable public results before private target reveal.
 
 ## Retained Files
@@ -34,7 +34,6 @@ Maintain one complete organic-additive screening implementation: v4.
 - Lithium-metal semantic rank: 1
 - LHCE-solvation semantic rank: 1
 - Pure semantic rank: 1
-- Structural rank: 6
 - Final rank: 1
 
 The formal result is complete and must not be rerun or tuned.
