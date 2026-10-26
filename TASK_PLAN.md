@@ -2,7 +2,7 @@
 
 ## Goal
 
-Maintain one complete organic-additive screening implementation: v4.
+Maintain one complete, publication-facing organic-additive screening implementation.
 
 ## Retained Workflow
 
@@ -17,12 +17,12 @@ Maintain one complete organic-additive screening implementation: v4.
 
 ## Retained Files
 
-- `project_config/organic_additive_screening_v4.json`
-- `semantic_fingerprint/v4/`
-- `scripts/run_organic_screening_v4.py`
-- `tests/v4/`
-- `docs/superpowers/plans/2026-07-24-organic-semantic-v4.md`
-- `docs/superpowers/specs/2026-07-24-organic-semantic-v4-design.md`
+- `project_config/organic_additive_screening.json`
+- `semantic_fingerprint/screening/`
+- `scripts/run_organic_screening.py`
+- `tests/screening/`
+- `docs/superpowers/plans/organic-additive-semantic-fingerprint-implementation.md`
+- `docs/superpowers/specs/organic-additive-semantic-fingerprint-method.md`
 - `environment.yml`
 
 ## Frozen Result

@@ -27,9 +27,9 @@ enters the ranking.
 
 ```text
 project_config/                 Frozen scientific and model configuration
-semantic_fingerprint/v4/       Molecular cards, model backend, ranking, locking
-scripts/run_organic_screening_v4.py
-tests/v4/                       Unit, security, recovery, and integration tests
+semantic_fingerprint/screening/  Molecular cards, model backend, ranking, locking
+scripts/run_organic_screening.py
+tests/screening/                Unit, security, recovery, and integration tests
 docs/superpowers/specs/         Complete method specification
 figures/semantic_screening_results/structural_similarity_diagnostic/
                                 Archived exploratory structure diagnostic
@@ -55,7 +55,7 @@ import-source -> freeze -> screen -> reveal-target
 Use the CLI help for the complete arguments:
 
 ```bash
-python scripts/run_organic_screening_v4.py --help
+python scripts/run_organic_screening.py --help
 ```
 
 The blind `screen` command accepts no private target input. Public results are
@@ -63,7 +63,7 @@ hash-locked before `reveal-target` can read the private target registry.
 
 ## Formal Result
 
-For run `20260724-organic-additive-v4-01`, 3-cyanotetrahydrofuran achieved rank
+For the locked formal run, 3-cyanotetrahydrofuran achieved rank
 1 on all three semantic axes, pure semantic rank 1, and final rank 1. The fixed
 success criterion was pure semantic rank no greater than 15.
 

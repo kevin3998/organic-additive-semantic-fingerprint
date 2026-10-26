@@ -8,5 +8,10 @@ __pycache__/
 .pytest_cache/
 *.safetensors
 .codex/
+# Current run products
+runs/
+private_runs/
+
+# Immutable legacy formal-run locations retained for hash verification
 runs_v4/
 private_runs_v4/

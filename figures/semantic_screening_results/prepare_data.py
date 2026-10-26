@@ -163,8 +163,23 @@ def _verify_record(record: Mapping[str, Any], path: Path, label: str) -> None:
         recorded_hash = str(record["sha256"])
     except (KeyError, TypeError, ValueError) as error:
         raise ValueError(f"Malformed locked record for {label}.") from error
-    if recorded_path != path.resolve():
-        raise ValueError(f"Locked path mismatch for {label}.")
+    current_path = path.resolve()
+    if recorded_path != current_path:
+        # Formal locks predate relocation of the repository. Permit only a
+        # whole-repository move: the complete run-root-relative path must stay
+        # identical, while size and SHA256 checks below remain mandatory.
+        markers = {"runs_v4", "private_runs_v4"}
+
+        def locked_tail(candidate: Path) -> tuple[str, ...] | None:
+            for index, part in enumerate(candidate.parts):
+                if part in markers:
+                    return candidate.parts[index:]
+            return None
+
+        recorded_tail = locked_tail(recorded_path)
+        current_tail = locked_tail(current_path)
+        if recorded_tail is None or recorded_tail != current_tail:
+            raise ValueError(f"Locked path mismatch for {label}.")
     if path.stat().st_size != recorded_size:
         raise ValueError(f"Locked size mismatch for {label}.")
     _verify_hash(path, recorded_hash, label)

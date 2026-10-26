@@ -48,60 +48,20 @@ against those canonical tables.
 The formal run directories, model weights and embeddings are never modified or
 copied into this directory.
 
-## Figure versions
+## Manuscript figure
 
-The first complete Nature-style result figure is preserved under `v1/`. It
-reads only the derived files under `data/`:
-
-```bash
-python figures/semantic_screening_results/v1/plot_results.py
-```
-
-Its plotting contract, legend draft, QA record and exports are kept together in
-the version directory:
-
-- `v1/figure_contract.md`;
-- `v1/figure_legend.md`;
-- `v1/qa_notes.md`;
-- `v1/images/`.
-
-The v1 exports preserve the earlier visualization design as a historical
-snapshot. The current publication data and active figure are pure-semantic.
-
-Version 2 is stored under `v2/` and rebuilds the hero panel as a Stage 1-to-final
-rank migration map plus a four-row semantic fingerprint landscape:
+The submission-ready Results figure is maintained under `manuscript_figure/`:
 
 ```bash
-python figures/semantic_screening_results/v2/plot_results.py
-```
-
-The v2 TIFF export is fixed at 3200 dpi; SVG and PDF remain the preferred
-resolution-independent manuscript files.
-
-The former ECFP/Tanimoto comparison has been moved in full to
-`structural_similarity_diagnostic/`. It is an exploratory archive and is not
-read by the current data-preparation or plotting paths.
-
-Version 3 is preserved as the last Top-20-matrix Results layout:
-
-```bash
-python figures/semantic_screening_results/v3/prepare_v3_data.py prepare
-python figures/semantic_screening_results/v3/plot_results.py
-```
-
-Its four panels show Stage 1-to-semantic rank migration, the three raw
-axis-score distributions, the Top-20 semantic matrix and the rank-1 candidate's
-complete anchor profile.
-
-Version 4 is the current Results figure. It replaces the arbitrary Top-20
-matrix with an all-candidate equal-weight aggregation view and strengthens the
-visibility of the rank and score distributions:
-
-```bash
-python figures/semantic_screening_results/v4/prepare_v4_data.py prepare
-python figures/semantic_screening_results/v4/plot_results.py
+python figures/semantic_screening_results/manuscript_figure/prepare_figure_data.py prepare
+python figures/semantic_screening_results/manuscript_figure/plot_results.py
 ```
 
 Panel c contains all 200 candidates and connects the three within-axis
 percentiles to their equal-weight semantic score. Panel d reports score
 provenance and anchor occurrence only within the same 200-candidate pool.
+
+Earlier layouts are retained under `development_archive/` for internal
+traceability and are not part of the submission package. The former
+ECFP/Tanimoto comparison remains under `structural_similarity_diagnostic/` as
+an exploratory archive and is not read by the formal data or plotting paths.
